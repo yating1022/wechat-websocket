@@ -34,7 +34,7 @@ public class MessageController {
         log.info("状态码：{}", errcode);
         log.info("开始保存记录到数据库");
         chatRecordEntity chatRecordEntity = new chatRecordEntity();
-        chatRecordEntity.setType(1);
+        chatRecordEntity.setType(0);
         chatRecordEntity.setMsg(message.getMsg());
         chatRecordEntity.setUserId(Math.toIntExact(message.getUserId()));
         Boolean b = wechatCallback.saveMessageToDataBase(chatRecordEntity);

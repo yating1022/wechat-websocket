@@ -17,5 +17,6 @@ public class WechatMessage {
     private String content;
     private Long msgId;
     private Integer agentID;
+    private String  PicUrl;
 
 }

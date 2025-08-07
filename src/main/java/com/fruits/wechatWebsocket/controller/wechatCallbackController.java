@@ -97,7 +97,13 @@ public class wechatCallbackController {
     public Boolean saveMessageToDataBase(WechatMessage messagem,Integer type){
         chatRecordEntity chatRecordEntity = new chatRecordEntity();
         chatRecordEntity.setType(type);
-        chatRecordEntity.setMsg(messagem.getContent());
+        if (messagem.getPicUrl() != null && !messagem.getPicUrl().equals("")) {
+//            他是图片消息
+            chatRecordEntity.setMsg(messagem.getPicUrl());
+        }else{
+            chatRecordEntity.setMsg(messagem.getContent());
+        }
+
         userEntity user = userservice.getUserByChatName(messagem.getFromUserName());
         chatRecordEntity.setUserId(user.getId());
         messageService.sendToUser(user.getId(),chatRecordEntity);

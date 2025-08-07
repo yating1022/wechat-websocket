@@ -19,6 +19,7 @@ public class WechatXmlParser {
         message.setFromUserName(getElementText(root, "FromUserName"));
         message.setMsgType(getElementText(root, "MsgType"));
         message.setContent(getElementText(root, "Content"));
+        message.setPicUrl(getElementText(root, "PicUrl"));
 
         // 处理数字类型字段
         message.setCreateTime(parseLong(getElementText(root, "CreateTime")));
