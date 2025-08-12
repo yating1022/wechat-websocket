@@ -99,7 +99,7 @@ public class wechatCallbackController {
         chatRecordEntity.setType(type);
         if (messagem.getPicUrl() != null && !messagem.getPicUrl().equals("")) {
 //            他是图片消息
-            chatRecordEntity.setMsg(messagem.getPicUrl());
+            chatRecordEntity.setMsg(messagem.getPicUrl().replace("https://wework.qpic.cn","http://162.211.230.236:18090"));
         }else{
             chatRecordEntity.setMsg(messagem.getContent());
         }
